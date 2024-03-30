@@ -8,12 +8,12 @@ import {useNavigate} from 'react-router-dom'
 const Login = () => {
     
     let navigate = useNavigate();
-    useEffect(()=>{
-        if(localStorage.getItem("admin-token"))
-        {
-            navigate("/admin/dashboard");
-        }
-    },[])
+    // useEffect(()=>{
+    //     if(localStorage.getItem("admin-token"))
+    //     {
+    //         navigate("/admin/dashboard");
+    //     }
+    // },[])
 
     let [errMsg, setErrMsg] = useState("");
     

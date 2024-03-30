@@ -14,7 +14,7 @@ import Login from '../Components/User/Features/Login'
 import Assam from '../Components/User/Features/Assam'
 import MyBooking from '../Components/User/Features/MyBooking'
 import Logout from '../Components/User/Features/Logout'
-import AdminLogin from '../Components/User/Features/Login'
+import ALogin from '../Components/Admin/Features/Login'
 import MyProfile from '../Components/User/Features/MyProfile'
 import UserProtactedModule from '../Modules/UserProtactedModule'
 import DestinationList from '../Components/Admin/Features/DestinationList'
@@ -24,7 +24,7 @@ import HotelList from '../Components/Admin/Features/HotelList'
 import UHotel from '../Components/User/Features/Hotel'
 import ALogout from '../Components/Admin/Features/Logout'
 import Destination from '../Components/User/Features/Destination'
-import ALogin from '../Components/Admin/Features/Login'
+
 
 
 const AllRoutes = () => {
@@ -51,7 +51,7 @@ const AllRoutes = () => {
                 </Route>
 
                 <Route path='admin' element={<Adminmodule />}>
-                <Route path='' element={<AdminLogin />} />
+                <Route path='' element={<ALogin />} />
                   <Route path='dashboard' element={<Dashboard />} />
                   <Route path='users' element={<Users />} />
                   <Route path='booking' element={<Booking />} />
@@ -62,7 +62,7 @@ const AllRoutes = () => {
                   <Route path='hotel/list' element={<HotelList />} />
                   <Route path='users/list' element={<UserList />} />
                   <Route path='logout' element={<ALogout />} />
-                  <Route path='login' element={<ALogin />} />
+                  
 
                 </Route>
       
