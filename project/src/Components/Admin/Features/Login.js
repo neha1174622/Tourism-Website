@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {useFormik} from 'formik'
 import AdminLoginSchema from '../../../schemas/AdminLoginSchema'
 import axios from 'axios'
@@ -6,8 +6,17 @@ import {API_URL} from '../../../util/API_URL'
 import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
-    let [errMsg, setErrMsg] = useState("");
+    
     let navigate = useNavigate();
+    useEffect(()=>{
+        if(localStorage.getItem("admin-token"))
+        {
+            navigate("/admin/dashboard");
+        }
+    },[])
+
+    let [errMsg, setErrMsg] = useState("");
+    
     let loginForm = useFormik({
         initialValues : { username : "", password : ""},
         onSubmit : (formdata)=>{

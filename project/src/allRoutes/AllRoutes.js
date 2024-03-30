@@ -17,6 +17,14 @@ import Logout from '../Components/User/Features/Logout'
 import AdminLogin from '../Components/User/Features/Login'
 import MyProfile from '../Components/User/Features/MyProfile'
 import UserProtactedModule from '../Modules/UserProtactedModule'
+import DestinationList from '../Components/Admin/Features/DestinationList'
+import UserList from '../Components/Admin/Features/UserList'
+import Hotel from '../Components/Admin/Features/Hotel'
+import HotelList from '../Components/Admin/Features/HotelList'
+import UHotel from '../Components/User/Features/Hotel'
+import ALogout from '../Components/Admin/Features/Logout'
+import Destination from '../Components/User/Features/Destination'
+import ALogin from '../Components/Admin/Features/Login'
 
 
 const AllRoutes = () => {
@@ -28,7 +36,9 @@ const AllRoutes = () => {
                   <Route path='contact' element={<Contact />} />
                   <Route path='login' element={<Login />} />
                   <Route path='signup' element={<Signup />} /> 
+                  <Route path='destination/:x' element={<Destination />} />
                   <Route path='assam' element={<Assam/>} /> 
+                  <Route path='hotel' element={<UHotel />} />
                   {/* <Route path='destination' element={<Destination />} />
                   */}
 
@@ -46,6 +56,14 @@ const AllRoutes = () => {
                   <Route path='users' element={<Users />} />
                   <Route path='booking' element={<Booking />} />
                   <Route path='destination' element={<AdminDestination />} />
+                  
+                  <Route path='hotel' element={<Hotel />} />
+                  <Route path='destination/list' element={<DestinationList />} />
+                  <Route path='hotel/list' element={<HotelList />} />
+                  <Route path='users/list' element={<UserList />} />
+                  <Route path='logout' element={<ALogout />} />
+                  <Route path='login' element={<ALogin />} />
+
                 </Route>
       
                     

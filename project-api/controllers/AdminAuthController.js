@@ -3,10 +3,10 @@ const Admin = require("../models/Admin");
 const sha1 = require("sha1")
 const jwt = require("jsonwebtoken")
 routes.post("/", async(req, res)=>{
-    // let username = req.body.username;
-    // let password = req.body.password;
+    let username = req.body.username;
+    let password = req.body.password;
 
-    let {username, password} = req.body;
+    //let {username, password} = req.body;
     let result = await Admin.find({ username : username });
     if(result.length>0){
         if(result[0].password == sha1(password))

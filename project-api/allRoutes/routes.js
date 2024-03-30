@@ -8,4 +8,7 @@ routes.use("/api/signup", require("../controllers/SignupController"));
 routes.use("/api/userauth", require("../controllers/UserAuthController"));
 routes.use("/api/adminauth", require("../controllers/AdminAuthController"));
 
+routes.use("/api/destination", require("../controllers/DestinationController"));
+routes.use("/api/hotel", require("../controllers/HotelController"));
+
 module.exports = routes;

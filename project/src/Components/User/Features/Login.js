@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
 
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import { useFormik } from 'formik'
 import LoginSchema from '../../../schemas/LoginSchema'
 import axios from 'axios'
 import {API_URL} from '../../../util/API_URL'
 
+
 const Login = () => {
+
+  let navigate = useNavigate();
 
   let [errMsg, setErrMsg] = useState("");
 
@@ -18,6 +21,9 @@ const Login = () => {
           // console.log(response.data);
           if(response.data.success==true)
           {
+            // localStorage.setItem(key, value)
+            localStorage.setItem("access-token", response.data.token);
+            navigate("/user/my-booking");
 
           }
           if(response.data.success==false && response.data.errType == 1)
