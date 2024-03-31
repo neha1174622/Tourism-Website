@@ -32,15 +32,15 @@ const Header = () => {
                         <div className ="nav-item dropdown">
                             <NavLink to="" className ="nav-link dropdown-toggle" data-bs-toggle="dropdown">Destination</NavLink>
                             <div className ="dropdown-menu m-0">
-                                <NavLink to ="destination.html" className ="dropdown-item">Arunachal Pradesh</NavLink>
-                                <NavLink to ="/assam" className ="dropdown-item">Assam</NavLink>
-                                <NavLink to ="destination.html" className ="dropdown-item">Manipur</NavLink>
-                                <NavLink to ="destination.html" className ="dropdown-item">Meghalaya</NavLink>
-                                <NavLink to ="destination.html" className ="dropdown-item">Mizoram</NavLink>
-                                <NavLink to ="destination.html" className ="dropdown-item">Nagaland</NavLink>
+                                <NavLink to ="/destination/Arunachal Pradesh" className ="dropdown-item">Arunachal Pradesh</NavLink>
+                                <NavLink to ="/destination/Assam" className ="dropdown-item">Assam</NavLink>
+                                <NavLink to='/destination/Manipur' className='dropdown-item'>Manipur</NavLink>
+					<NavLink to='/destination/Meghalaya' className='dropdown-item'>Meghalaya</NavLink>
+					<NavLink to='/destination/Mizoram' className='dropdown-item'>Mizoram</NavLink>
+					<NavLink to='/destination/Nagaland' className='dropdown-item'>Nagaland</NavLink>
                                 
-                                <NavLink to="booking.html" className ="dropdown-item">Tripura</NavLink>
-                                <NavLink to="booking.html" className ="dropdown-item">View All</NavLink>
+                                <NavLink to="'/destination/Tripura" className ="dropdown-item">Tripura</NavLink>
+                               
                                 
                             </div>
                         </div>

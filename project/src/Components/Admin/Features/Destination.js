@@ -35,11 +35,13 @@ const Destination = () => {
           <div className='my-3'>
             <label>Destination Category</label>
             <select name='category' onChange={addForm.handleChange} className='form-control' >
-              <option>Select</option>
-              <option>Wildlife</option>
-              <option>Nature</option>
-              <option>Heritage</option>
-              <option>Spiritual</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Tripura</option>
             </select>
           </div>
           <div className='my-3'>

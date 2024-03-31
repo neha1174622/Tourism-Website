@@ -1,10 +1,14 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const DestinationBox = (props) => {
     return (
         <div className="col-md-4 ">
-            <div className="project-wrap">
-                <a href="#" className="img" style={{ backgroundImage: "url(/assets/images/destination-1.jpg)" }}></a>
+            
+            
+            <img className ="img-fluid rounded w-100" src="/assets/img/destination-1.jpg" alt="" />
+                                 
+                
                 <div className="text p-4">
 
 
@@ -12,8 +16,8 @@ const DestinationBox = (props) => {
 
                     <a href='' className='btn btn-info'>Detail</a>
                 </div>
-            </div>
         </div>
+        
     )
 }
 

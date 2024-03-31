@@ -39,8 +39,7 @@ const AllRoutes = () => {
                   <Route path='destination/:x' element={<Destination />} />
                   <Route path='assam' element={<Assam/>} /> 
                   <Route path='hotel' element={<UHotel />} />
-                  {/* <Route path='destination' element={<Destination />} />
-                  */}
+                  
 
               <Route path='user' element={<UserProtactedModule />}>
                       <Route path='my-booking' element={<MyBooking />} />

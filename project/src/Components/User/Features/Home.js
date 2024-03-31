@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Slider from '../Shared/Slider'
 import { NavLink, useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import { API_URL } from '../../../util/API_URL'
+import DestinationBox from '../Shared/DestinationBox'
+import HotelBox from '../Shared/HotelBox'
 
 const Home = () =>{
 
+    let [allDestination, setAllDestination] = useState([]);
+	useEffect(() => {
+		axios.get(`${API_URL}/destination`).then(response => {
+			setAllDestination(response.data);
+		})
+	}, [])
+
+	let [allHotel, setAllHotel] = useState([]);
+	useEffect(() => {
+		axios.get(`${API_URL}/hotel`).then(response => {
+			setAllHotel(response.data);
+		})
+	}, [])
 
   return(
     <>
@@ -25,14 +42,14 @@ const Home = () =>{
                         </li>
                         
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="#tab-2">
+                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="/destination/Arunachal Pradesh">
                                 <span className ="text-dark" style={{width: "150px"}}> Arunachal Pradesh</span>
                             </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="#tab-2">
+                            <a className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="/destination/Assam">
                                 <span className ="text-dark" style={{width: "150px"}}>Assam</span>
-                            </NavLink>
+                            </a>
                         </li>
                         <li className ="nav-item p-2">
                             <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="#tab-2">
@@ -62,37 +79,26 @@ const Home = () =>{
                         </li>
                         
                     </ul>
-                    <div className ="tab-content">
-                        <div id="tab-1" className ="tab-pane fade show p-2 active">
-                            <div className ="row g-4">
-                                <div className ="col-xl-8">
-                                    <div className ="row g-4">
-                                        <div className ="col-lg-6">
-                                            <div className ="destination-img">
-                                                <img className ="img-fluid rounded w-100" src="/assets/img/destination-1.jpg" alt="" />
-                                                <div className ="destination-overlay p-4">
-                                                    <NavLink to="#" className ="btn btn-primary text-white rounded-pill border py-2 px-3">20 Photos</NavLink>
-                                                    <h4 className ="text-white mb-2 mt-3">New York City</h4>
-                                                    <NavLink to="#" className ="btn-hover text-white">View All Place <i className ="fa fa-arrow-right ms-2"></i></NavLink>
-                                                </div>
-                                                <div className ="search-icon">
-                                                    <NavLink to="/assets/img/destination-1.jpg" data-lightbox="destination-1"><i className ="fa fa-plus-square fa-1x btn btn-light btn-lg-square text-primary"></i></NavLink>
-                                                </div>
-                                            </div>
-                                        </div>
-                                                                              
-                                        
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                        
-                    </div>
+                  
+                    <div className="row">
+
+						{
+							allDestination.map(value => {
+								return(
+									<DestinationBox value={value} />
+								)
+							})
+						}
+
+
+					</div>
+                
                 </div>
             </div>
         </div>
         {/* <!-- Destination End --> */}
+
+        
 
         {/* <!-- Tour Booking Start --> */}
      <div className ="container-fluid booking py-5">
@@ -133,6 +139,32 @@ const Home = () =>{
             </div>
      </div>
         {/* <!-- Tour Booking End --> */}
+
+        {/* <!-- Hotel start --> */}
+
+        <section className="ftco-section ftco-no-pt">
+				<div className="container">
+					<div className="row justify-content-center pb-4">
+						<div className="col-md-12 heading-section text-center ">
+							<h2 className="my-4">Latest Hotel</h2>
+						</div>
+					</div>
+					<div className="row">
+
+						{
+							allHotel.map(value => {
+								return(
+									<HotelBox value={value} />
+								)
+							})
+						}
+
+
+					</div>
+				</div>
+			</section>
+
+        {/* <!-- Hotel end --> */}
 
         
         
