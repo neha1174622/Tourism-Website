@@ -1,22 +1,38 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import {API_URL} from '../../../util/API_URL'
-import { useNavigate } from 'react-router-dom'
 
 const DestinationList = () => {
-    let navigate = useNavigate();
-    let [allDestination, setAllDestination] = useState([]);
 
-    useEffect(()=>{ // getting data from destination api which has data with categories.
+    // let x = useRef();
+    let btn = useRef();
+
+    let [destination, setDestination] = useState({});
+    let [allDestination, setAllDestination] = useState([]);
+    useEffect(()=>{
         axios.get(`${API_URL}/destination`).then(response=>{
+
             setAllDestination(response.data);
         })
     },[])
 
-    let del = (obj)=>{ // it is for delete opertaion from CRUD
-        axios.delete(`${API_URL}/destination/${obj._id}`).then(response=>{
-            console.log(response.data);
-            navigate("/admin/destination")
+
+    
+    // let demo = ()=>{
+    //     x.current.click();
+    // }
+
+
+    let askDelete = (obj)=>{
+        setDestination(obj);
+    }
+
+    let confirmDelete = ()=>{
+        axios.delete(`${API_URL}/destination/${destination._id}`).then(response=>{
+            btn.current.click();
+            setAllDestination(()=>{
+                return allDestination.filter(value=> value._id !== destination._id)
+            })
         })
     }
 
@@ -24,6 +40,14 @@ const DestinationList = () => {
     <div className="container my-4">
         <div className="row">
             <div className="col-md-12">
+
+           
+
+
+
+
+                <h3>List of All Destination</h3>
+    
                 <table className="table table-dark">
                     <thead>
                         <tr>
@@ -41,7 +65,7 @@ const DestinationList = () => {
                                         <td>{index+1}</td>
                                         <td>{value.title}</td>
                                         <td>{value.category}</td>
-                                        <td><button onClick={()=>del(value)} className='btn btn-danger btn-sm'>Delete</button></td>
+                                        <td><button onClick={()=>askDelete(value)} data-toggle="modal" data-target="#delModal" className='btn btn-danger btn-sm'>Delete</button></td>
                                     </tr>
                                 )
                             })
@@ -50,8 +74,36 @@ const DestinationList = () => {
                 </table>
             </div>
         </div>
+
+            <div className='modal fade' id='delModal'>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h3>Delete Destination</h3>
+                        </div>
+                        <div className="modal-body">
+                            <p>Are you sure want to delete <b>{destination.title}</b></p>
+                        </div>
+                        <div className="modal-footer">
+                            <button ref={btn} data-dismiss="modal" className='btn btn-dark'>Close</button>
+                            <button onClick={confirmDelete} className='btn btn-danger'>Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
     </div>
   )
 }
 
 export default DestinationList
+
+
+/*
+let arr = [5, 12, 9, 17, 20, 6, 14, 36]
+
+let arr2 = arr.filter(value=> value != 12);
+
+*/
