@@ -42,14 +42,15 @@ const Home = () =>{
                         </li>
                         
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="/destination/Arunachal Pradesh">
+                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" to="/destination/Arunachal Pradesh">
                                 <span className ="text-dark" style={{width: "150px"}}> Arunachal Pradesh</span>
                             </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <a className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" href="/destination/Assam">
-                                <span className ="text-dark" style={{width: "150px"}}>Assam</span>
-                            </a>
+                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" to="/destination/Assam">
+                                Assam
+                                {/* <span className ="text-dark" style={{width: "150px"}}>Assam</span> */}
+                            </NavLink>
                         </li>
                         <li className ="nav-item p-2">
                             <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="#tab-2">

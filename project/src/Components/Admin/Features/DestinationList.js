@@ -16,13 +16,7 @@ const DestinationList = () => {
         })
     },[])
 
-
     
-    // let demo = ()=>{
-    //     x.current.click();
-    // }
-
-
     let askDelete = (obj)=>{
         setDestination(obj);
     }
@@ -31,7 +25,8 @@ const DestinationList = () => {
         axios.delete(`${API_URL}/destination/${destination._id}`).then(response=>{
             btn.current.click();
             setAllDestination(()=>{
-                return allDestination.filter(value=> value._id !== destination._id)
+               
+                return allDestination.filter(value=> value._id != destination._id) 
             })
         })
     }
@@ -65,7 +60,7 @@ const DestinationList = () => {
                                         <td>{index+1}</td>
                                         <td>{value.title}</td>
                                         <td>{value.category}</td>
-                                        <td><button onClick={()=>askDelete(value)} data-toggle="modal" data-target="#delModal" className='btn btn-danger btn-sm'>Delete</button></td>
+                                        <td><button onClick={()=>askDelete(value)} data-bs-toggle="modal" data-bs-target="#delModal" className='btn btn-danger btn-sm'>Delete</button></td>
                                     </tr>
                                 )
                             })
@@ -85,7 +80,7 @@ const DestinationList = () => {
                             <p>Are you sure want to delete <b>{destination.title}</b></p>
                         </div>
                         <div className="modal-footer">
-                            <button ref={btn} data-dismiss="modal" className='btn btn-dark'>Close</button>
+                            <button ref={btn} data-bs-dismiss="modal" className='btn btn-dark'>Close</button>
                             <button onClick={confirmDelete} className='btn btn-danger'>Delete</button>
                         </div>
                     </div>
