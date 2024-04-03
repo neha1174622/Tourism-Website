@@ -1,4 +1,5 @@
-require("../config/db")
+require("../config/db");
+
 const mongoose = require("mongoose");
 
 const HotelSchema = mongoose.Schema({
@@ -7,7 +8,6 @@ const HotelSchema = mongoose.Schema({
     city : String,
     contact : String,
     email : String
-
 })
 
-module.exports = mongoose.model("hotel", HotelSchema)
+module.exports = mongoose.model("hotel", HotelSchema);

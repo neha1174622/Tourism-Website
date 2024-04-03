@@ -11,10 +11,10 @@ routes.post("/", async(req, res)=>{  //storing data in data base from from
     await User.create(req.body);
     res.send({ success : true }); 
 })
-
-routes.get("/", async(req, res)=>{ // sending data http://localhost:8080/api/signup
-    let result = await User.find();
-    res.send(result);
-})
+// we can do this also for userlist in admin , but we have created different controller name usercontroller
+// routes.get("/", async(req, res)=>{ // sending data http://localhost:8080/api/signup
+//     let result = await User.find();
+//     res.send(result);
+// })
 
 module.exports = routes;

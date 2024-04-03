@@ -9,16 +9,13 @@ import HotelBox from '../Shared/HotelBox'
 const Home = () =>{
 
     let [allDestination, setAllDestination] = useState([]);
+	let [allHotels, setAllHotels] = useState([]);
 	useEffect(() => {
 		axios.get(`${API_URL}/destination`).then(response => {
 			setAllDestination(response.data);
 		})
-	}, [])
-
-	let [allHotel, setAllHotel] = useState([]);
-	useEffect(() => {
-		axios.get(`${API_URL}/hotel`).then(response => {
-			setAllHotel(response.data);
+		axios.get(`${API_URL}/hotels`).then(response => {
+			setAllHotels(response.data);
 		})
 	}, [])
 
@@ -153,11 +150,7 @@ const Home = () =>{
 					<div className="row">
 
 						{
-							allHotel.map(value => {
-								return(
-									<HotelBox value={value} />
-								)
-							})
+							allHotels.map(value=><HotelBox info={value} />)
 						}
 
 
