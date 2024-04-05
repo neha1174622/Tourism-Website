@@ -8,4 +8,10 @@ routes.get("/", async(req, res)=>{
     res.send(result);
 })
 
+routes.put("/:id", async(req, res)=>{
+    let id = req.params.id;
+    await User.updateMany({ _id : id }, req.body);
+    res.send({ success : true });
+})
+
 module.exports = routes;

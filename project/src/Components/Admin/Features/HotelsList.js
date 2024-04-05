@@ -27,7 +27,7 @@ const HotelsList = () => {
 
   return (
     <>
-    <div className="container my-4">
+    <div className="container my-4" style={{marginTop : "100px", minHeight : "600px"}}>
         <div className="row">
             <div className="col-md-12">
                 <h3>All Hotels List</h3>
@@ -50,7 +50,7 @@ const HotelsList = () => {
                                         <td>{value.name}</td>
                                         <td>{value.contact}</td>
                                         <td>{value.city}</td>
-                                        <td><button onClick={()=>askDelete(value)} data-toggle="modal" data-target="#delModal" className='btn btn-danger btn-sm'>Delete</button></td>
+                                        <td><button onClick={()=>askDelete(value)} data-bs-toggle="modal" data-bs-target="#delModal" className='btn btn-danger btn-sm'>Delete</button></td>
                                     </tr>
                                 )
                             })
@@ -71,7 +71,7 @@ const HotelsList = () => {
                     <p>Are you sure want to delete <b>{hotel.name}</b></p>
                 </div>
                 <div className="modal-footer">
-                    <button ref={btn} className='btn btn-dark' data-dismiss="modal">Close</button>
+                    <button ref={btn} className='btn btn-dark' data-bs-dismiss="modal">Close</button>
                     <button onClick={confDelete} className='btn btn-danger'>Delete</button>
                 </div>
             </div>

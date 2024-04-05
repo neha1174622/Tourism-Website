@@ -22,7 +22,7 @@ const Destination = () => {
   })
 
   return (
-    <div className="container my-4">
+    <div className="container my-4" style={{marginTop : "100px", minHeight : "600px"}}>
       <NavLink to="/admin/destination/list" className="btn btn-info">View All Destination</NavLink>
         <form onSubmit={addForm.handleSubmit}>
       <div className="row">

@@ -32,7 +32,7 @@ const DestinationList = () => {
     }
 
   return (
-    <div className="container my-4">
+    <div className="container my-4" style={{marginTop : "100px", minHeight : "600px"}}>
         <div className="row">
             <div className="col-md-12">
 
