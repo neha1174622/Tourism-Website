@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import {API_URL} from '../../../util/API_URL'
+import { useNavigate } from 'react-router-dom'
 
 const DestinationList = () => {
-
+    let navigate = useNavigate();
     // let x = useRef();
     let btn = useRef();
 
@@ -30,6 +31,9 @@ const DestinationList = () => {
             })
         })
     }
+    let askEdit = (obj)=>{
+        navigate("/admin/destination/edit/"+obj._id)
+    }
 
   return (
     <div className="container my-4" style={{marginTop : "100px", minHeight : "600px"}}>
@@ -49,6 +53,7 @@ const DestinationList = () => {
                             <th>S.No.</th>
                             <th>Title</th>
                             <th>Category</th>
+                            <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -60,6 +65,7 @@ const DestinationList = () => {
                                         <td>{index+1}</td>
                                         <td>{value.title}</td>
                                         <td>{value.category}</td>
+                                        <td><button onClick={()=>askEdit(value)} className='btn btn-info btn-sm'>Edit</button></td>
                                         <td><button onClick={()=>askDelete(value)} data-bs-toggle="modal" data-bs-target="#delModal" className='btn btn-danger btn-sm'>Delete</button></td>
                                     </tr>
                                 )
