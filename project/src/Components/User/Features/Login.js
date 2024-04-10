@@ -53,6 +53,8 @@ const Login = () => {
                 <div className='card-header bg-dark border border-dark'>
                   <h5 style={{color : "#fff"}}>User Login</h5>
                   <small>If you are new user <NavLink to="/signup">click here</NavLink></small>
+                  <br />
+                  <small><NavLink to="/forgot-password">Forgot Password</NavLink></small>
                 </div>
 
                 <div className="card-body">

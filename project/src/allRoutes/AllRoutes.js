@@ -24,6 +24,7 @@ import HotelsList from '../Components/Admin/Features/HotelsList'
 import UHotel from '../Components/User/Features/Hotel'
 import ALogout from '../Components/Admin/Features/Logout'
 import Destination from '../Components/User/Features/Destination'
+import ForgotPassword from '../Components/User/Features/ForgotPassword'
 
 
 
@@ -35,6 +36,7 @@ const AllRoutes = () => {
                   <Route path='about' element={<About />} />
                   <Route path='contact' element={<Contact />} />
                   <Route path='login' element={<Login />} />
+                  <Route path='forgot-password' element={<ForgotPassword />} />
                   <Route path='signup' element={<Signup />} /> 
                   <Route path='destination/:x' element={<Destination />} />
                   <Route path='assam' element={<Assam/>} /> 
