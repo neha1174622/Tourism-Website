@@ -5,6 +5,7 @@ const DestinationSchema = mongoose.Schema({
     title : String,
     category : String,
     detail : String,
+    image : String
 
 })
 

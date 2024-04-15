@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import {useFormik} from 'formik'
 import {API_URL} from '../../../util/API_URL'
 import {NavLink, useNavigate, useParams} from 'react-router-dom'
@@ -6,11 +6,13 @@ import axios from 'axios'
 const Destination = () => {
 
   let param = useParams();
+  let file = useRef();
   
   let [newDesti, setNewDesti] = useState({
     title : "",
     category : "",
-    detail : ""
+    detail : "",
+    image : ""
   })
 
   useEffect(()=>{
@@ -38,10 +40,14 @@ const Destination = () => {
           navigate("/admin/destination/list");
       }
       else{
-        axios.post(`${API_URL}/destination`, formdata).then(response=>{
-          // console.log(response.data);
-          navigate("/admin/destination/list");
-        })
+        let myform = new FormData();
+        myform.append("title", formdata.title);
+        myform.append("category", formdata.category);
+        myform.append("detail", formdata.detail);
+        myform.append("image", file.current.files[0]);
+        await axios.post(`${API_URL}/destination`, myform)
+        navigate("/admin/destination/list");
+        
       }
     }
   })
@@ -60,14 +66,22 @@ const Destination = () => {
             <input type='text' value={addForm.values.title} name='title' onChange={addForm.handleChange} className='form-control' />
           </div>
           <div className='my-3'>
+            <label>Destination Image</label>
+            <input type='file' ref={file} value={addForm.values.image} name='image' onChange={addForm.handleChange} className='form-control' />
+          </div>
+          <div className='my-3'>
             <label>Destination Category</label>
             <select name='category' value={addForm.values.category} onChange={addForm.handleChange} className='form-control' >
               <option>Select</option>
-              <option>Wildlife</option>
-              <option>Nature</option>
-              <option>Heritage</option>
-              <option>Spiritual</option>
+              <option>Arunachal Pradesh</option>
+              <option>Assam</option>
+              <option>Manipur</option>
+              <option>Meghalaya</option>
+              <option>Mizoram</option>
+              <option>Nagaland</option>
+              <option>Tripura</option>
             </select>
+                     
           </div>
           <div className='my-3'>
             <label>Destination Detail</label>
