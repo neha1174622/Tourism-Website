@@ -39,7 +39,7 @@ const Header = () => {
 					<NavLink to='/destination/Mizoram' className='dropdown-item'>Mizoram</NavLink>
 					<NavLink to='/destination/Nagaland' className='dropdown-item'>Nagaland</NavLink>
                                 
-                                <NavLink to="'/destination/Tripura" className ="dropdown-item">Tripura</NavLink>
+                                <NavLink to="/destination/Tripura" className ="dropdown-item">Tripura</NavLink>
                                
                                 
                             </div>

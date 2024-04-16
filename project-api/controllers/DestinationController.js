@@ -18,7 +18,7 @@ routes.get("/", async(req, res)=>{
     let result = await Destination.find();
     res.send(result);
 })
-// return perticular data --> Read
+// return particular data --> Read
 routes.get("/:id", async(req, res)=>{
     let result = await Destination.find({_id : req.params.id});
     res.send(result[0]);

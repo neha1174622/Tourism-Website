@@ -31,53 +31,39 @@ const Home = () =>{
                     <h1 className ="mb-0">Popular Destination</h1>
                 </div>
                 <div className ="tab-className  text-center">
+                <div className ="btn-group " >
                     <ul className ="nav nav-pills d-inline-flex justify-content-center p-2">
-                    <li className ="nav-item  p-2 ">
-                            <NavLink className ="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" to="#tab-1">
-                                <span className ="text-dark" style={{width: "150px"}}> All </span>
-                            </NavLink>
+                    <li className ="nav-item p-2">
+                            <NavLink  className ="d-flex p-3  border border-primary bg-light  rounded-pill" to="/destination/Assam"> All </NavLink>
+                        </li>
+                        <li className ="nav-item p-2">
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Arunachal Pradesh</NavLink>
                         </li>
                         
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" to="/destination/Arunachal Pradesh">
-                                <span className ="text-dark" style={{width: "150px"}}> Arunachal Pradesh</span>
-                            </NavLink>
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Assam </NavLink>
+                        </li>
+                        
+                        <li className ="nav-item p-2">
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Manipur </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" to="/destination/Assam">
-                                Assam
-                                {/* <span className ="text-dark" style={{width: "150px"}}>Assam</span> */}
-                            </NavLink>
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Meghalaya </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex py-2 mx-3 border border-primary bg-light rounded-pill" data-bs-toggle="pill" to="#tab-2">
-                                <span className ="text-dark" style={{width: "150px"}}> Manipur</span>
-                            </NavLink>
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Mizoram </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" to="#tab-1">
-                                <span className ="text-dark" style={{width: "150px"}}> Meghalaya</span>
-                            </NavLink>
-                        </li>
-
-                        <li className ="nav-item p-2">
-                            <NavLink className ="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" to="#tab-1">
-                                <span className ="text-dark" style={{width: "150px"}}> Mizoram</span>
-                            </NavLink>
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Nagaland </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" to="#tab-1">
-                                <span className ="text-dark" style={{width: "150px"}}> Nagaland </span>
-                            </NavLink>
+                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Tripura </NavLink>
                         </li>
-                        <li className ="nav-item p-2">
-                            <NavLink className ="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" to="#tab-1">
-                                <span className ="text-dark" style={{width: "150px"}}> Tripura</span>
-                            </NavLink>
-                        </li>
+                        
+                        
                         
                     </ul>
-                  
+                  </div>
                     <div className="row">
 
 						{
