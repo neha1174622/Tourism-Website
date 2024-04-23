@@ -1,7 +1,12 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
+import React, {useRef} from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
+    let menubar = useRef();
+	let menuBarHandler = ()=>{
+		menubar.current.classList.remove("show");
+	}
+    
   return (
     <> 
      {/* <!-- Navbar & Hero Start --> */}
@@ -14,32 +19,32 @@ const Header = () => {
                 <button className ="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span className ="fa fa-bars"></span>
                 </button>
-                <div className ="collapse navbar-collapse" id="navbarCollapse">
+                <div ref={menubar} className ="collapse navbar-collapse" id="navbarCollapse">
                     <div className ="navbar-nav ms-auto py-0">
-                        <NavLink to="/" className ="nav-item nav-link active">Home</NavLink>
+                        <NavLink onClick={menuBarHandler} to="/" className ="nav-item nav-link active">Home</NavLink>
                        
 
                         <div className ="nav-item dropdown">
                             <NavLink to="#" className ="nav-link dropdown-toggle" data-bs-toggle="dropdown">Reach Us</NavLink>
                             <div className ="dropdown-menu m-0">
-                                <NavLink to ="/about" className ="dropdown-item">About</NavLink>
+                                <NavLink onClick={menuBarHandler} to ="/about" className ="dropdown-item">About</NavLink>
                                 
-                                <NavLink to="/contact" className ="dropdown-item">Contact</NavLink>
+                                <NavLink onClick={menuBarHandler} to="/contact" className ="dropdown-item">Contact</NavLink>
                                 
                             </div>
                         </div>
                                                 
                         <div className ="nav-item dropdown">
-                            <NavLink to="" className ="nav-link dropdown-toggle" data-bs-toggle="dropdown">Destination</NavLink>
+                            <NavLink onClick={menuBarHandler} to="" className ="nav-link dropdown-toggle" data-bs-toggle="dropdown">Destination</NavLink>
                             <div className ="dropdown-menu m-0">
-                                <NavLink to ="/destination/Arunachal Pradesh" className ="dropdown-item">Arunachal Pradesh</NavLink>
-                                <NavLink to ="/destination/Assam" className ="dropdown-item">Assam</NavLink>
-                                <NavLink to='/destination/Manipur' className='dropdown-item'>Manipur</NavLink>
-					<NavLink to='/destination/Meghalaya' className='dropdown-item'>Meghalaya</NavLink>
-					<NavLink to='/destination/Mizoram' className='dropdown-item'>Mizoram</NavLink>
-					<NavLink to='/destination/Nagaland' className='dropdown-item'>Nagaland</NavLink>
+                                <NavLink onClick={menuBarHandler} to ="/destination/Arunachal Pradesh" className ="dropdown-item">Arunachal Pradesh</NavLink>
+                                <NavLink onClick={menuBarHandler} to ="/destination/Assam" className ="dropdown-item">Assam</NavLink>
+                                <NavLink onClick={menuBarHandler} to='/destination/Manipur' className='dropdown-item'>Manipur</NavLink>
+					<NavLink onClick={menuBarHandler} to='/destination/Meghalaya' className='dropdown-item'>Meghalaya</NavLink>
+					<NavLink onClick={menuBarHandler} to='/destination/Mizoram' className='dropdown-item'>Mizoram</NavLink>
+					<NavLink onClick={menuBarHandler} to='/destination/Nagaland' className='dropdown-item'>Nagaland</NavLink>
                                 
-                                <NavLink to="/destination/Tripura" className ="dropdown-item">Tripura</NavLink>
+                                <NavLink onClick={menuBarHandler} to="/destination/Tripura" className ="dropdown-item">Tripura</NavLink>
                                
                                 
                             </div>
@@ -49,18 +54,18 @@ const Header = () => {
 				localStorage.getItem("access-token") 
 				?
 				<>
-					<li className="nav-item"><NavLink to="/user/my-booking" className="nav-link">My-Booking</NavLink></li>
-	          		<li className="nav-item"><NavLink to="/user/my-profile" className="nav-link">My-Profile</NavLink></li>
-	          		<li className="nav-item"><NavLink to="/user/logout" className="nav-link">Logout</NavLink></li>
+					<li className="nav-item"><NavLink onClick={menuBarHandler} to="/user/my-booking" className="nav-link">My-Booking</NavLink></li>
+	          		<li className="nav-item"><NavLink onClick={menuBarHandler} to="/user/my-profile" className="nav-link">My-Profile</NavLink></li>
+	          		<li className="nav-item"><NavLink onClick={menuBarHandler} to="/user/logout" className="nav-link">Logout</NavLink></li>
 				</>
 				:
 				<>
 					<div className ="nav-item dropdown">
                             <NavLink to="#" className ="nav-link dropdown-toggle" data-bs-toggle="dropdown">Enlist</NavLink>
                             <div className ="dropdown-menu m-0">
-                                <NavLink to ="/login" className ="dropdown-item">Already Member(Log In)</NavLink>
+                                <NavLink onClick={menuBarHandler} to ="/login" className ="dropdown-item">Already Member(Log In)</NavLink>
                                 
-                                <NavLink to="/signup" className ="dropdown-item">New Member(Sign Up)</NavLink>
+                                <NavLink onClick={menuBarHandler} to="/signup" className ="dropdown-item">New Member(Sign Up)</NavLink>
                                 
                                 
                             </div>
@@ -69,7 +74,7 @@ const Header = () => {
 			  }
                         
                     </div>
-                    <NavLink to="" className ="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</NavLink>
+                    <NavLink onClick={menuBarHandler} to="" className ="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</NavLink>
                 </div>
             </nav>
 
