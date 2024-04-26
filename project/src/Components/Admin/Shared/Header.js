@@ -18,8 +18,14 @@ const Header = () => {
             <li className='nav-item'>
               <NavLink to='/admin/dashboard' className='nav-link'>Dashboard</NavLink>
             </li>
-            <li className='nav-item'>
-              <NavLink to='/admin/destination' className='nav-link'>Destination</NavLink>
+            
+            <li className='nav-item dropdown'>
+              <a data-toggle="dropdown"  className='nav-link dropdown-toggle'>Destination</a>
+              <div className='dropdown-menu'>
+
+                <NavLink to='/admin/destination'   className='dropdown-item'>Add</NavLink>
+                <NavLink to='/admin/destination/list'   className='dropdown-item'>List</NavLink>
+              </div>
             </li>
             <li className='nav-item'>
               <NavLink to='/admin/hotels' className='nav-link'>Hotel</NavLink>

@@ -15,6 +15,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.1",
     "random-string": "^0.2.0",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "unique-string-generator": "^1.1.1"
   }
 }
