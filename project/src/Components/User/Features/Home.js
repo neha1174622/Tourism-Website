@@ -5,11 +5,13 @@ import axios from 'axios'
 import { API_URL } from '../../../util/API_URL'
 import DestinationBox from '../Shared/DestinationBox'
 import HotelBox from '../Shared/HotelBox'
+import ProductBox from '../Shared/ProductBox'
 
 const Home = () =>{
 
     let [allDestination, setAllDestination] = useState([]);
 	let [allHotels, setAllHotels] = useState([]);
+    let [allPro, setAllPro] = useState([]);
 	useEffect(() => {
 		axios.get(`${API_URL}/destination`).then(response => {
 			setAllDestination(response.data);
@@ -18,6 +20,17 @@ const Home = () =>{
 			setAllHotels(response.data);
 		})
 	}, [])
+
+    useEffect(()=>{
+		getAllPro();
+	},[])
+
+	let getAllPro = async()=>{
+		let response = await axios.get(`${API_URL}/product`);
+		setAllPro(response.data);
+	}
+
+
 
   return(
     <>
@@ -37,11 +50,11 @@ const Home = () =>{
                             <NavLink  className ="d-flex p-3  border border-primary bg-light  rounded-pill" to="/destination/Assam"> All </NavLink>
                         </li>
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Arunachal Pradesh</NavLink>
+                            <NavLink style={{minWidth : "150px"}} className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Arunachal Pradesh</NavLink>
                         </li>
                         
                         <li className ="nav-item p-2">
-                            <NavLink className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Assam </NavLink>
+                            <NavLink style={{minWidth : "200px" ,textAlign:"center"}} className ="d-flex p-3  border border-primary bg-light rounded-pill" to="/destination/Assam"> Assam </NavLink>
                         </li>
                         
                         <li className ="nav-item p-2">
@@ -145,101 +158,29 @@ const Home = () =>{
 			</section>
 
         {/* <!-- Hotel end --> */}
+        
+        {/* <!-- Product start--> */}
 
+        <section className="ftco-section">
+				<div className="container">
+					<div className="row justify-content-center pb-4">
+						<div className="col-md-12 heading-section text-center ">
+							<h2 className="mb-4">Recent Product</h2>
+						</div>
+					</div>
+					<div className="row">
+					{
+						allPro.map(item=><ProductBox key={item._id} info={item} />)
+					}	
+						
+						
+					</div>
+				</div>
+			</section>
+            {/* <!-- Product end --> */}
         
         
-        {/* <!-- Testimonial Start --> */}
-      <div className ="container-fluid testimonial py-5">
-            <div className ="container py-5">
-                <div className ="mx-auto text-center mb-5" style={{maxWidth: "900px"}}>
-                    <h5 className ="section-title px-3">Testimonial</h5>
-                    <h1 className ="mb-0">Our Clients Say!!!</h1>
-                </div>
-                <div className ="testimonial-carousel owl-carousel">
-                    <div className ="testimonial-item text-center rounded pb-4">
-                        <div className ="testimonial-comment bg-light rounded p-4">
-                            <p className ="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
-                            </p>
-                        </div>
-                        <div className ="testimonial-img p-1">
-                            <img src="/assets/img/testimonial-1.jpg" className ="img-fluid rounded-circle" alt="Image" />
-                        </div>
-                        <div style={{marginTop:" -35px"}}>
-                            <h5 className ="mb-0">John Abraham</h5>
-                            <p className ="mb-0">New York, USA</p>
-                            <div className ="d-flex justify-content-center">
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div className ="testimonial-item text-center rounded pb-4">
-                        <div className ="testimonial-comment bg-light rounded p-4">
-                            <p className ="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
-                            </p>
-                        </div>
-                        <div className ="testimonial-img p-1">
-                            <img src="/assets/img/testimonial-2.jpg" className ="img-fluid rounded-circle" alt="Image" />
-                        </div>
-                        <div style= {{marginTop:" -35px"}}>
-                            <h5 className ="mb-0">John Abraham</h5>
-                            <p className ="mb-0">New York, USA</p>
-                            <div className ="d-flex justify-content-center">
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div className ="testimonial-item text-center rounded pb-4">
-                        <div className ="testimonial-comment bg-light rounded p-4">
-                            <p className ="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
-                            </p>
-                        </div>
-                        <div className ="testimonial-img p-1">
-                            <img src="/assets/img/testimonial-3.jpg" className ="img-fluid rounded-circle" alt="Image" />
-                        </div>
-                        <div style={{marginTop:" -35px"}}>
-                            <h5 className ="mb-0">John Abraham</h5>
-                            <p className ="mb-0">New York, USA</p>
-                            <div className ="d-flex justify-content-center">
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div className ="testimonial-item text-center rounded pb-4">
-                        <div className ="testimonial-comment bg-light rounded p-4">
-                            <p className ="text-center mb-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nostrum cupiditate, eligendi repellendus saepe illum earum architecto dicta quisquam quasi porro officiis. Vero reiciendis,
-                            </p>
-                        </div>
-                        <div className ="testimonial-img p-1">
-                            <img src="/assets/img/testimonial-4.jpg" className ="img-fluid rounded-circle" alt="Image" />
-                        </div>
-                        <div style={{marginTop:" -35px"}}>
-                            <h5 className ="mb-0">John Abraham</h5>
-                            <p className ="mb-0">New York, USA</p>
-                            <div className ="d-flex justify-content-center">
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                                <i className ="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-      </div>
-        {/* <!-- Testimonial End --> */}
+       
 
         
 

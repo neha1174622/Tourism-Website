@@ -27,6 +27,9 @@ import Destination from '../Components/User/Features/Destination'
 import ForgotPassword from '../Components/User/Features/ForgotPassword'
 import ChangePass from '../Components/User/Features/ChangePass'
 import UpdateProfile from '../Components/User/Features/UpdateProfile'
+import Product from '../Components/Admin/Features/Product'
+import ProductList from '../Components/Admin/Features/ProductList'
+import ProductDetail from '../Components/User/Features/ProductDetail'
 
 
 
@@ -39,6 +42,7 @@ const AllRoutes = () => {
                   <Route path='contact' element={<Contact />} />
                   <Route path='login' element={<Login />} />
                   <Route path='forgot-password' element={<ForgotPassword />} />
+                  <Route path='detail/:id' element={<ProductDetail />} />
                   <Route path='signup' element={<Signup />} /> 
                   <Route path='destination/:x' element={<Destination />} />
                   <Route path='assam' element={<Assam/>} /> 
@@ -62,9 +66,11 @@ const AllRoutes = () => {
                   <Route path='booking' element={<Booking />} />
                   <Route path='destination' element={<AdminDestination />} />
                   <Route path='destination/edit/:id' element={<AdminDestination />} />
-                  
-                  
                   <Route path='destination/list' element={<DestinationList />} />
+
+                  <Route path='product' element={<Product />} />
+                  <Route path='product/edit/:id' element={<Product />} />
+                  <Route path='product/list' element={<ProductList />} />
                  
                   
                   <Route path='hotels' element={<Hotels />} />

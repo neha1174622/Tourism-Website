@@ -27,6 +27,15 @@ const Header = () => {
                 <NavLink to='/admin/destination/list'   className='dropdown-item'>List</NavLink>
               </div>
             </li>
+
+            <li className='nav-item dropdown'>
+              <a data-toggle="dropdown"  className='nav-link dropdown-toggle'>Product</a>
+              <div className='dropdown-menu'>
+
+                <NavLink to='/admin/product'   className='dropdown-item'>Add</NavLink>
+                <NavLink to='/admin/product/list'   className='dropdown-item'>List</NavLink>
+              </div>
+            </li>
             <li className='nav-item'>
               <NavLink to='/admin/hotels' className='nav-link'>Hotel</NavLink>
             </li>

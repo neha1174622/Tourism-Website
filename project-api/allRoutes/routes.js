@@ -11,6 +11,7 @@ routes.use("/api/adminauth", require("../controllers/AdminAuthController"));
 routes.use("/api/destination", require("../controllers/DestinationController"));
 routes.use("/api/hotels", require("../controllers/HotelsController"));
 routes.use("/api/user", require("../controllers/UserController"));
+routes.use("/api/product", require("../controllers/ProductController"));
 
 
 module.exports = routes;
