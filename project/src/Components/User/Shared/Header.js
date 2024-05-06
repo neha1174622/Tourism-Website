@@ -1,7 +1,9 @@
 import React, {useRef} from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+    let cartdata = useSelector(state=>state);
     let menubar = useRef();
 	let menuBarHandler = ()=>{
 		menubar.current.classList.remove("show");
@@ -74,7 +76,7 @@ const Header = () => {
 			  }
                         
                     </div>
-                    <NavLink onClick={menuBarHandler} to="" className ="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Book Now</NavLink>
+                    <NavLink onClick={menuBarHandler} to="/mycart" className ="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">My Cart ({cartdata.length})</NavLink>
                 </div>
             </nav>
 

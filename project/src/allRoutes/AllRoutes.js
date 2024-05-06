@@ -30,6 +30,7 @@ import UpdateProfile from '../Components/User/Features/UpdateProfile'
 import Product from '../Components/Admin/Features/Product'
 import ProductList from '../Components/Admin/Features/ProductList'
 import ProductDetail from '../Components/User/Features/ProductDetail'
+import MyCart from '../Components/User/Features/MyCart'
 
 
 
@@ -47,6 +48,7 @@ const AllRoutes = () => {
                   <Route path='destination/:x' element={<Destination />} />
                   <Route path='assam' element={<Assam/>} /> 
                   <Route path='hotel' element={<UHotel />} />
+                  <Route path='mycart' element={<MyCart />} />
                   
 
               <Route path='user' element={<UserProtactedModule />}>
